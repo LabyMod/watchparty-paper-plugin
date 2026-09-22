@@ -1,0 +1,56 @@
+# LabysWatchParty
+#
+# Screens are created in-game with /wp screen create and stored in screens.yml.
+# Only players using LabyMod (with Watch Party enabled in their settings) see and hear screens.
+
+# Radius in blocks around a screen in which LabyMod players see and hear it.
+# Audio does not fade with distance, so outside this radius the screen is switched off.
+# Can be overridden per screen: /wp screen create <id> <size> <radius>
+default-radius: 48
+
+# How often player distances to screens are checked, in ticks (20 ticks = 1 second).
+range-check-ticks: 10
+
+# How often everyone watching gets the current position again, in seconds.
+# Clients only correct themselves when they drift more than 3 seconds, so this is cheap.
+sync-interval-seconds: 20
+
+# The LabyMod client only plays links from these hosts (subdomains included).
+# Links from other hosts are rejected by the command right away.
+allowed-hosts:
+  - youtube.com
+  - youtu.be
+  - twitch.tv
+  - tiktok.com
+
+# Tell players without LabyMod once per session that they are missing a screen.
+hint-without-labymod: true
+
+# Color codes use &. Placeholders are written as {name}.
+messages:
+  prefix: "&8[&dWatchParty&8] &7"
+  no-permission: "&cYou are not allowed to do that."
+  players-only: "&cOnly players can do that."
+  unknown-screen: "&cThere is no screen called &f{id}&c."
+  invalid-url: "&cThis link can't be played. Allowed are links from &f{hosts}&c."
+  invalid-time: "&cInvalid time &f{input}&c. Use seconds, mm:ss, hh:mm:ss or +/- in front."
+  nothing-playing: "&cNothing is playing on &f{id}&c."
+  playing: "Now playing on &f{id}&7: &f{url}"
+  paused: "Paused &f{id}&7 at &f{time}&7."
+  resumed: "Resumed &f{id}&7 at &f{time}&7."
+  seeked: "Jumped to &f{time}&7 on &f{id}&7."
+  stopped: "Stopped &f{id}&7."
+  screen-created: "Created screen &f{id}&7 (&f{size}&7, radius &f{radius}&7). The sign sits one block behind the wall."
+  screen-removed: "Removed screen &f{id}&7."
+  screen-exists: "&cA screen called &f{id}&c already exists."
+  invalid-id: "&cScreen ids may only contain a-z, 0-9, _ and - (max. 16 characters)."
+  invalid-size: "&cInvalid size &f{input}&c. Use e.g. &f16x9&c or just &f16&c."
+  invalid-radius: "&cInvalid radius &f{input}&c."
+  no-target: "&cLook at the wall where the top center of the screen should be (max. 8 blocks away)."
+  invalid-face: "&cLook at the side of a wall block, not its top or bottom."
+  blocked-sign-spot: "&cThe block behind the wall (one up) holds a container or similar. Move the screen or clear that block."
+  status-idle: "&f{id}&7: idle &8({viewers} watching)"
+  status-playing: "&f{id}&7: {state} &f{time}&7 - &f{url} &8({viewers} watching)"
+  list-empty: "No screens yet. Create one with &f/wp screen create <id> <size>&7."
+  reloaded: "Config and screens reloaded."
+  hint: "&7There is a screen here. Play with &dLabyMod&7 to watch it!"

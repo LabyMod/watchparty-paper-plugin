@@ -1,0 +1,27 @@
+name: LabysWatchParty
+version: '${version}'
+main: net.labymod.watchparty.WatchPartyPlugin
+api-version: '1.20'
+description: Synchronized video screens for LabyMod players (YouTube, Twitch, TikTok).
+authors: [LabyMedia]
+website: https://laby.net
+
+commands:
+  watchparty:
+    description: Control Watch Party screens
+    aliases: [wp]
+    usage: /<command> help
+
+permissions:
+  watchparty.admin:
+    description: Full access to Watch Party
+    default: op
+    children:
+      watchparty.control: true
+      watchparty.screen: true
+  watchparty.control:
+    description: Play, pause, seek and stop videos on screens
+    default: op
+  watchparty.screen:
+    description: Create and remove screens, reload the config
+    default: op
